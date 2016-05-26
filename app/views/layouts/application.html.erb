@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+    <link href="/assets/favicon5.ico" rel="shortcut icon" type="image/x-icon"/>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", media: 'all', 'data-turbolinks-track' => true %>
+</head>
+<body>
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-success" %>
+  <% end %>
+
+
+  <div class="container">
+    <%= yield %> 
+  </div>
+</body>
+</html>

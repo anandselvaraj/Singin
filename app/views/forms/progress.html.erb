@@ -1,0 +1,11 @@
+
+
+<div id="send-pin">
+  <h3>What's your phone number?</h3>
+  <%= form_for @form, remote: true do |i| %>
+    <div class="form-group">
+      <%= i.text_field :phone_number %>
+    </div>
+    <%= i.submit "Send PIN", class: "btn btn-primary", id: 'send-pin-link' %>
+  <% end %>
+</div>

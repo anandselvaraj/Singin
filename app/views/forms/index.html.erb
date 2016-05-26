@@ -1,0 +1,123 @@
+
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!--script>
+
+function ConfirmDelete()
+{
+  var x = confirm("Are you sure you want to delete?");
+  if (x)
+      return true;
+  else
+    return false;
+}
+
+</script-->
+
+<style>
+
+ thead {color:white;}
+
+ thead {background-color:rgb(75, 73, 73);}
+
+ tbody {color:gray;}
+
+ tfoot {color:red;}
+
+ .r{ border:1px solid #C2BABA; 
+      
+     text-align: center;
+    
+    font-family: initial; }
+ 
+   
+ a.hover {color: blue;}
+
+</style>
+
+<head>
+
+
+
+<div class="ind">
+
+<%= link_to '<i class="glyphicon glyphicon-fire"></i> Logout'.html_safe,forms_login_page_path(),:class=>'btn btn-danger' %>
+
+<!--button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-fire"></span> Login-Page</button-->
+
+<%= link_to '<i class="glyphicon glyphicon-user"></i> New User'.html_safe,new_form_path,:class=>'btn btn-primary' %>
+
+<h2><center><i><div style="font-family: initial;">DATABASE</div></i></center></h2>
+
+<center><%= will_paginate @form %></center>
+
+<body>
+
+<img style="margin-left: 25%;" src="/assets/480.gif">
+
+<img style="margin-left: 2%;" src="/assets/480.gif">
+
+<!--img style="margin-left: 2%;" src="/assets/82.gif"-->
+
+<center><table style="width: 50%;">
+
+<thead><tr>
+
+<th class="r" >Name</th>
+
+<th class="r">E-Mail</th>
+
+<th class="r">Password</th>
+
+<th class="r">Genter</th>
+
+<th class="r">Date of Birth</th>
+
+<th class="r">Role</th>
+
+<th class="r">Edit</th>
+
+<th class="r">Show</th>
+
+<th class="r">delete</th>
+
+</th></thead>
+
+<% @form.each do |f| %>
+
+<tbody><tr>
+
+<td class="r" ><%= f.username %></td>
+
+<td class="r" ><%= f.email %></td>
+
+<td class="r" ><%= f.password %></td>
+
+<td class="r" ><%= f.genter%></td>
+
+<td class="r" ><%= f.dob%></td>
+
+<td class="r" ><%= f.role%></td>
+
+<td class="r" ><%= link_to '<i class="glyphicon glyphicon-edit"></i> '.html_safe, edit_form_path(f), 
+:class=>'btn btn-default',:title=>"Edit your data..." %></td>
+
+<td class="r" ><%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, form_path(f),
+:class=>'btn btn-default',:title=>"Show your data..." %></td>
+
+<td class="r" ><%= link_to '<i class="glyphicon glyphicon-trash"></i>'.html_safe, f, :method=> "delete",data: { confirm: "You want delete?Mr/Ms:#{f.username}" },:class=>'btn btn-default',:title=>" Delete #{f.username} ..." %></td></tr>
+  
+
+<% end %>
+
+</table></center>
+
+<center><%= will_paginate @form %></center>
+
+</body></html>

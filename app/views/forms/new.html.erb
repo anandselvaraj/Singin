@@ -1,0 +1,234 @@
+<html lang="en">
+
+<head> 
+  
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+  <script> $(function() { $( "#datepicker" ).datepicker({ changeMonth: true, changeYear: true }); });</script>
+
+  <script> function goBack() { window.history.back(); } </script>
+
+  <style>
+
+ body {  margin: 51px auto; }
+
+.button {
+  background: #cfe7fa;
+  background: -moz-linear-gradient(top,  #cfe7fa 0%, #6393c1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cfe7fa), color-stop(100%,#6393c1));
+  background: -webkit-linear-gradient(top,  #cfe7fa 0%,#6393c1 100%);
+  background: -o-linear-gradient(top,  #cfe7fa 0%,#6393c1 100%);
+  background: -ms-linear-gradient(top,  #cfe7fa 0%,#6393c1 100%);
+  background: linear-gradient(top,  #cfe7fa 0%,#6393c1 100%);
+  border: 1px solid #6393c1;
+  -moz-border-radius: 40px;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  -moz-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, .5), inset -1px -1px 0px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: inset 1px 1px 0px rgba(255, 255, 255, .5), inset -1px -1px 0px rgba(0, 0, 0, .5);
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, .5), inset -1px -1px 0px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  display: inline-block;
+  font: 15px Arial, Verdana, Geneva, sans-serif;
+  line-height: 41px;
+  padding-right: 20px;
+}
+
+.button:hover .inner {
+  opacity: .5;
+}
+
+.button input {
+  display: none;
+}
+
+.button input:checked + .outer .inner {
+  opacity: 1;
+}
+
+.button .outer {
+  background: #2989d8;
+  background: -moz-radial-gradient(center, ellipse cover,  #2989d8 0%, #101354 99%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2989d8), color-stop(99%,#101354));
+  background: -webkit-radial-gradient(center, ellipse cover,  #2989d8 0%,#101354 99%);
+  background: -o-radial-gradient(center, ellipse cover,  #2989d8 0%,#101354 99%);
+  background: -ms-radial-gradient(center, ellipse cover,  #2989d8 0%,#101354 99%);
+  background: radial-gradient(center, ellipse cover,  #2989d8 0%,#101354 99%);
+  border: 1px solid black;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+  float: left;
+  height: 20px;
+  margin: 10px;
+  width: 20px;
+}
+
+.button .inner {
+  background: #e4f5fc;
+  background: -moz-radial-gradient(center, ellipse cover,  #e4f5fc 0%, #bfe8f9 50%, #9fd8ef 51%, #2ab0ed 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e4f5fc), color-stop(50%,#bfe8f9), color-stop(51%,#9fd8ef), color-stop(100%,#2ab0ed));
+  background: -webkit-radial-gradient(center, ellipse cover,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%);
+  background: radial-gradient(center, ellipse cover,  #e4f5fc 0%,#bfe8f9 50%,#9fd8ef 51%,#2ab0ed 100%);
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  display: block;
+  height: 14px;
+  margin: 3px;
+  opacity: 0;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+  width: 14px;
+}
+</style>
+
+<style>
+
+.select-style {
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #fff;
+
+    background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+</style>
+
+</head>
+
+
+<!--script id="template-upload" type="text/x-tmpl">
+
+<div class="upload">
+
+{%=o.name%}
+
+<div class="progress">
+
+<div class="bar" style="width: 0%">
+
+</div>
+
+</script-->
+
+
+<div class="new">
+
+<body> 
+
+<button onclick="goBack()" class="btn btn-info"><span class="glyphicon glyphicon-hand-left"></span>&nbsp;Go Back</button>
+
+<%= button_to "Go To Upload", forms_progress_path(), :id => "open-contacts-dialog-btn",:class => "inbox-sf-add-btn tip", :method => :get %>
+
+<div style="margin-left: 75%; color:white;">You Can Follow Us:<%= social_share_button_tag(@form, :popup => "true")%></div>
+
+
+
+<div style="width: 30%; margin-top: 0%; margin-left: 35%;">
+
+<div style="color: white; margin-left: 25%;"><h2>Resgistration Form</h2></div>
+
+<img style="margin-top: -15%; margin-left: 7%;" src="/assets/342.gif">
+
+<%=form_for [@form],:url=>{:controller=>"forms",:action=>"create",:method=>"post"} do |f| %>
+   
+<div class="form-group">
+    
+<%= f.text_field:username,:class=>"form-control",:placeholder=>"UserName",:required=>"",:autofocus=>"true",:title=>"Please Enter Your Name..."%>
+   
+</div>
+ 
+<div class="form-group">
+
+<%= f.text_field:email,:class=>"form-control",:required=>"",:placeholder=>"E-Mail-Adderss",:title=>"Please Enter Your E-Mail..."%>
+        
+</div>
+
+<div class="form-group">
+       
+<%= f.password_field:password,:class=>"form-control",:required=>"",:placeholder=>"Enter password",:title=>"Password Must 6 Characters.."%>
+        
+</div>
+
+<div class="form-group">
+        
+<%= f.password_field:confo_password,:class=>"form-control",:required=>"",:placeholder=>"Re-Enter password",:title=>"Enter Same Password"%>
+       
+</div>
+
+
+
+<div class="form-group">
+        
+<%=f.text_field :dob,:class=>"form-control",:id=>"datepicker",:required=>"",:placeholder=>"Enter Your Date of Birth",:title=>"Enter Your Date of Birth..."%>
+  
+</div>
+
+<div class="select-style">
+  
+   <%= f.select :role, options_for_select(["Select One", "User", "Admin","Owner"],:disabled => ["Select One"]), :class => 'form-control' %>
+   
+  
+</div><br>
+
+<div class="g-recaptcha" data-sitekey="6LdeQSATAAAAAK5yyfY8YpuP3igiBGh6vzh3VF34" required=""></div><br>
+
+<div style="text-align: center;">
+
+  <label class="button"><%= f.radio_button :genter, 'Male',:checked=>true%><span class="outer"><span class="inner"></span></span>Male</label>
+
+  <label class="button"><%= f.radio_button :genter, 'Female',:checked=>true%><span class="outer"><span class="inner"></span></span>Female</label>
+
+   <label class="button"><%= f.radio_button :genter, 'Others',:checked=>true%><span class="outer"><span class="inner"></span></span>Others</label>
+
+</div><br>
+
+<div class="form-group"><div class="col-xs-9 col-xs-offset-3">
+           
+<div style="margin-left: 23%;"><button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-user"></i>New User</button></div>
+
+</div></div>
+
+<%end%></div></center>
+
+
+</body></div>
+
+
+
+</html>
+
